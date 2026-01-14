@@ -1,0 +1,438 @@
+/* =========================================
+   CHECKOUT LAYOUT & RESPONSIVE STRUCTURE
+   ========================================= */
+
+   .checkout-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 3rem;
+    align-items: start;
+}
+
+.checkout-form-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.checkout-summary-column {
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+}
+
+/* Mobile Order Summary Accordion */
+.mobile-order-summary-accordion {
+    display: none;
+    background: var(--bg-surface);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.mobile-order-summary-header {
+    padding: 1.25rem;
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    cursor: pointer;
+    background: var(--bg-deep);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.mobile-order-summary-content {
+    padding: 1.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.mobile-sticky-bottom {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-surface);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 1rem;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+/* Form Sections */
+.form-section {
+    background: var(--bg-surface);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+/* Luxury Form Elements */
+.luxury-input {
+    background: var(--bg-deep);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    color: var(--text-content);
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.luxury-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+    outline: none;
+}
+
+.luxury-select {
+    background: var(--bg-deep);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    color: var(--text-content);
+    font-family: var(--font-body);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23D4AF37' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+}
+
+/* Shipping Method Cards */
+.shipping-method-card {
+    background: var(--bg-deep);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.shipping-method-card:hover,
+.shipping-method-card.selected {
+    border-color: var(--primary);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+    transform: translateY(-2px);
+}
+
+.shipping-method-card.selected::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 12px 12px 0 0;
+}
+
+/* Payment Options Grid */
+.payment-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.payment-option-card {
+    background: var(--bg-deep);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.payment-option-card:hover,
+.payment-option-card.selected {
+    border-color: var(--primary);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+    transform: translateY(-2px);
+}
+
+.payment-option-card.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    background: var(--primary);
+    color: var(--text-inverted);
+    border-radius: 50%;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Order Summary */
+.order-summary {
+    background: var(--bg-surface);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.order-summary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+.order-items {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.05);
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-item-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+/* Luxury Button */
+.luxury-button {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--text-inverted);
+    border: none;
+    padding: 1.25rem 2rem;
+    border-radius: 12px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.luxury-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+}
+
+.luxury-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.luxury-button:hover::before {
+    left: 100%;
+}
+
+/* Promo Code Section */
+.promo-section {
+    background: var(--bg-deep);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.promo-input-group {
+    display: flex;
+    gap: 0;
+}
+
+.promo-input {
+    flex: 1;
+    border-radius: 8px 0 0 8px;
+    border-right: none;
+}
+
+.promo-button {
+    border-radius: 0 8px 8px 0;
+    white-space: nowrap;
+}
+
+/* =========================================
+   RESPONSIVE BREAKPOINTS
+   ========================================= */
+
+/* Tablet Landscape and Desktop */
+@media (min-width: 1024px) {
+    .checkout-container {
+        padding: 2rem;
+    }
+    
+    .checkout-grid {
+        gap: 4rem;
+    }
+    
+    .form-section {
+        padding: 2.5rem;
+    }
+}
+
+/* Tablet Portrait */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .checkout-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .checkout-summary-column {
+        position: static;
+        order: -1;
+    }
+    
+    .mobile-order-summary-accordion {
+        display: none;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .checkout-container {
+        padding: 1rem;
+    }
+    
+    .checkout-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .checkout-summary-column {
+        display: none;
+    }
+    
+    .mobile-order-summary-accordion {
+        display: block;
+    }
+    
+    .mobile-sticky-bottom {
+        display: flex;
+    }
+    
+    .form-section {
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+    
+    .payment-options-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .luxury-button {
+        padding: 1rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .checkout-container {
+        padding: 0.5rem;
+    }
+    
+    .form-section {
+        padding: 1rem;
+    }
+    
+    .payment-options-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .promo-input-group {
+        flex-direction: column;
+    }
+    
+    .promo-input,
+    .promo-button {
+        border-radius: 8px;
+        width: 100%;
+    }
+    
+    .promo-input {
+        border-right: 1px solid rgba(212, 175, 55, 0.1);
+        border-bottom: none;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Luxury Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Custom Scrollbar */
+.order-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.order-items::-webkit-scrollbar-track {
+    background: var(--bg-deep);
+    border-radius: 3px;
+}
+
+.order-items::-webkit-scrollbar-thumb {
+    background: var(--primary-dark);
+    border-radius: 3px;
+}
+
+.order-items::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}

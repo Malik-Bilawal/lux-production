@@ -1,0 +1,1 @@
+<h1 class="text-center text-4xl text-red-600 text-underline">Our Values Coming Soon</h1>

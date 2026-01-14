@@ -1,0 +1,1 @@
+<h1 class="text-center text-blue-600 text-4xl bg-blue-100">NEW SECTION COMING SOON #1</h1>

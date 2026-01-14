@@ -1,0 +1,249 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0f172a;
+    color: #e2e8f0;
+    overflow-x: hidden;
+}
+
+.grid-bg {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4f46e5;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6366f1;
+}
+
+/* Animation */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+.thumbnail {
+    height: auto;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+    border-color: #00f2fe;
+    transform: scale(1.05);
+}
+
+.watch-image {
+    transition: all 0.5s ease;
+}
+
+.watch-image:hover {
+    transform: scale(1.03);
+}
+
+.elegant-text {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.5px;
+}
+
+.gold-accent {
+    color: #d4af37;
+    border-color: #d4af37;
+}
+
+.description-box {
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.description-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.description-box h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #00f2fe, #ec4899);
+    border-radius: 3px;
+}
+
+.description-box p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #cbd5e1;
+}
+
+.description-box ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#thumbnails-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+#thumbnails-container {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.description-box li {
+    padding: 10px 0;
+    padding-left: 30px;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.description-box li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00f2fe;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Reviews Section Styles */
+.reviews-container {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.review-card {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 242, 254, 0.1);
+    border-color: rgba(0, 242, 254, 0.2);
+}
+
+.review-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.review-image {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.review-image:hover {
+    transform: scale(1.05);
+}
+
+.rating-stars {
+    display: flex;
+    align-items: center;
+}
+
+.star {
+    color: #cbd5e1;
+    margin-right: 2px;
+}
+
+.star.filled {
+    color: #fbbf24;
+}
+
+.rating-progress {
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.rating-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+}
+
+.verified-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+    .description-box {
+        padding: 20px;
+    }
+
+    .review-images {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    }
+
+    .review-image {
+        height: 60px;
+    }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

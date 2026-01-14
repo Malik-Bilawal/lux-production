@@ -1,0 +1,110 @@
+@import "./components/navbar.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* ▼ ADD THIS NEW BLOCK ▼ */
+html, body {
+  @apply min-h-screen  font-sans;
+}
+/* ▲ END BLOCK ▲ */
+
+@layer base {
+  h1,h2,h3,h4,h5,h6 {
+    @apply font-serif !important;
+  }
+}
+/* ▲ END NEW BLOCK ▲ */
+
+/* Add to your app.css */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* Animation Keyframes */
+@keyframes slideUp {
+    0% { transform: translateY(100%); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+/* Template-specific styles */
+.legal-template nav a {
+    transition: all 0.3s ease;
+}
+
+.legal-template nav a:hover {
+    transform: translateX(4px);
+}
+
+/* Selection styling */
+::selection {
+    background-color: #D4AF37;
+    color: #000000;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #D4AF37;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #AA8C2C;
+}
+
+/* Prose styling for content */
+.prose-invert {
+    color: #9CA3AF;
+}
+
+.prose-invert strong {
+    color: #FFFFFF;
+}
+
+.prose-invert a {
+    color: #D4AF37;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.prose-invert a:hover {
+    color: #F6E6B6;
+    text-decoration: underline;
+}
+
+
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+

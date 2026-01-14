@@ -1,0 +1,827 @@
+/* 🎯 Luxury Design System - Gen Z Enhanced */
+:root {
+  --banner-height: 40px;
+  --drawer-search-desktop: 500px;
+  --drawer-search-mobile: 80vw;
+  --drawer-cart-desktop: 450px;
+  --drawer-cart-mobile: 80vw;
+  --drawer-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 🎯 Luxury Typography */
+.luxury-gradient-text {
+  /* Updated colors to theme.primary */
+  background: linear-gradient(135deg, theme('colors.theme.primary'), theme('colors.theme.primary-light'), theme('colors.theme.primary'));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Container for the logo */
+.luxury-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+/* Logo Icon - subtle luxury symbol */
+.luxury-logo-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Subtle metallic gradient using theme primary */
+  background: linear-gradient(135deg, theme('colors.theme.primary'), theme('colors.theme.primary-light'));
+  border: 1px solid theme('colors.theme.primary' / 0.2);
+
+  /* Soft glow */
+  box-shadow: 0 0 8px theme('colors.theme.primary' / 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Slight hover lift, subtle */
+.luxury-logo-icon:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 12px theme('colors.theme.primary' / 0.4);
+}
+
+/* Text part of the logo */
+.luxury-logo-text {
+  /* Updated font family to Heading (Cinzel) or Accent (Playfair) */
+  font-family: theme('fontFamily.heading'); 
+  font-weight: 700;
+  font-size: 1.75rem;
+  background: linear-gradient(135deg, theme('colors.theme.primary'), theme('colors.theme.primary-light'));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* Tagline under logo */
+.luxury-logo-tagline {
+  font-family: theme('fontFamily.body');
+  font-weight: 300;
+  font-size: 0.7rem;
+  color: theme('colors.theme.primary' / 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: -0.1rem;
+}
+
+.luxury-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: theme('colors.theme.muted'); /* Updated from brand.gray */
+  font-family: theme('fontFamily.body'); /* Updated from sans */
+  font-weight: 500;
+  letter-spacing: 0.05em; /* Wider spacing for luxury feel */
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 0.5rem 0.25rem;
+}
+
+.luxury-nav-text {
+  position: relative;
+  z-index: 10;
+  display: inline-block;
+  transition: all 0.3s ease;
+  will-change: transform;
+}
+
+.luxury-nav-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0.125rem;
+  background: linear-gradient(
+    to right,
+    theme('colors.theme.primary'),
+    theme('colors.theme.primary-light')
+  );
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 9999px;
+}
+
+/* HOVER STATES */
+.luxury-nav-link:hover .luxury-nav-underline {
+  width: 100%;
+}
+
+.luxury-nav-link:hover .luxury-nav-text {
+  color: theme('colors.theme.primary');
+  transform: scale(1.05);
+}
+
+/* Desktop Navigation Force Utility */
+.luxury-desktop-nav-force {
+    display: none !important;
+}
+
+@media (min-width: 1024px) { /* Updated to lg breakpoint standard */
+    .luxury-desktop-nav-force {
+        display: flex !important;
+        align-items: center;
+        gap: 2rem; 
+    }
+}
+
+/* 🎯 Enhanced Icon Buttons */
+.luxury-icon-btn {
+  position: relative;
+  padding: 0.75rem;
+  border-radius: 1rem;
+  background: theme('colors.theme.surface / 0.8');
+  border: 1px solid theme('colors.theme.primary / 0.15');
+  color: theme('colors.theme.muted');
+  transition: all 0.3s ease;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+
+.luxury-icon-btn:hover {
+  color: theme('colors.theme.primary');
+  border-color: theme('colors.theme.primary / 0.4');
+  box-shadow: theme('boxShadow.glow'); /* Updated shadow name */
+  transform: scale(1.1);
+}
+
+.luxury-badge {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  background: linear-gradient(to bottom right, theme('colors.theme.primary'), #D4AF37);
+  color: theme('colors.theme.page'); /* Text is dark on gold background */
+  font-size: 0.75rem;
+  font-weight: 900;
+  border-radius: 9999px;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 2s infinite;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* 🎯 Enhanced Dropdown */
+.luxury-dropdown {
+  width: 14rem;
+  background: theme('colors.theme.surface / 0.95');
+  backdrop-filter: blur(24px);
+  border-radius: 1.5rem;
+  box-shadow: theme('boxShadow.card');
+  border: 1px solid theme('colors.theme.primary / 0.2');
+  padding: 0.75rem;
+  transition: all 0.3s ease;
+  transform-origin: top right;
+}
+
+.luxury-dropdown-item {
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  color: theme('colors.theme.muted');
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  font-family: theme('fontFamily.body');
+}
+
+.luxury-dropdown-item:hover {
+  background: theme('colors.theme.page');
+  color: theme('colors.theme.primary');
+}
+/* 🎯 Enhanced Mobile Menu */
+.luxury-mobile-menu {
+  backdrop-filter: blur(24px);
+  border: 1px solid theme('colors.theme.primary / 0.2');
+  box-shadow: theme('boxShadow.card');
+  animation: slide-down 0.4s ease-out;
+}
+
+.luxury-mobile-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+  color: theme('colors.theme.muted');
+  transition: all 0.3s ease;
+  font-family: theme('fontFamily.body');
+  border: 1px solid transparent;
+}
+
+.luxury-mobile-link:hover {
+  color: theme('colors.theme.primary');
+  background: linear-gradient(to right, theme('colors.theme.primary / 0.1'), transparent);
+  border-color: theme('colors.theme.primary / 0.2');
+}
+
+/* 🎯 Luxury Checkout Button */
+.luxury-btn {
+  @apply inline-flex items-center justify-center font-heading font-extrabold tracking-wider uppercase text-lg w-full py-4 px-6 cursor-pointer transition-all duration-300;
+  border-radius: 0.25rem; /* Slight rounding for modern feel */
+  border: none;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+.luxury-btn-primary {
+  @apply bg-gradient-to-r from-theme-primary to-theme-primary-dark text-theme-inverted;
+}
+
+.luxury-btn-primary:hover {
+  @apply from-theme-primary-light to-theme-primary;
+  transform: translateY(-1px);
+  box-shadow: theme('boxShadow.glow');
+}
+
+.luxury-btn-outline {
+  @apply border-2 border-theme-primary text-theme-primary bg-transparent;
+}
+
+.luxury-btn-outline:hover {
+  @apply bg-theme-primary/10;
+  box-shadow: 0 0 15px theme('colors.theme.primary / 0.25');
+}
+
+/* 🎯 Overlay */
+.luxury-overlay {
+  position: fixed;
+  inset: 0;
+  background: theme('colors.theme.page / 0.1'); 
+  backdrop-filter: blur(0.8px) saturate(70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9998;
+}
+
+.luxury-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.luxury-drawer {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  background: theme('colors.theme.surface / 0.95'); 
+  backdrop-filter: blur(8px); 
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.search-drawer {
+  right: 0; 
+  left: auto; 
+  width: 100%; 
+  border-left: 1px solid theme('colors.theme.primary / 0.2'); 
+  
+  transform: translateX(100%); 
+}
+
+
+.cart-drawer {
+  right: 0;
+  left: auto;
+width: 100%;
+
+  border-left: 1px solid theme('colors.theme.primary / 0.2');
+  
+  transform: translateX(100%);
+}
+
+.luxury-drawer.open {
+  transform: translateX(0);
+}
+@media (max-width: 768px) {
+
+.cart-drawer{
+  width: 90%;
+  max-width: 384px; 
+}
+.search-drawer{
+  width: 90%;
+  max-width: 387px; 
+}
+}
+
+/* 🎯 Responsive Widths (Tablet & Desktop) */
+@media (min-width: 768px) {
+  .search-drawer, 
+  .cart-drawer {
+      width: 480px; /* Fixed width for larger screens */
+  }
+}
+.luxury-swal-container {
+  z-index: 100000 !important;
+}
+
+/* Drawer content */
+.luxury-drawer-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.5rem;
+}
+
+/* Header */
+.luxury-drawer-header {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid theme('colors.theme.primary / 0.1');
+}
+
+/* Scrollable content wrapper flush with edges */
+.luxury-scroll-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  box-sizing: content-box;
+}
+
+/* Scrollbar flush with right edge */
+.luxury-scroll-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+.luxury-scroll-wrapper::-webkit-scrollbar-thumb {
+  background-color: theme('colors.theme.primary');
+  border-radius: 0;
+}
+.luxury-scroll-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Product grid - single card per row, full width */
+.luxury-products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Make the header, summary, and checkout "stick" */
+.luxury-drawer-header,
+.luxury-cart-summary,
+.luxury-checkout-section {
+    flex-shrink: 0;
+}
+
+.luxury-drawer-title {
+  font-size: 1.875rem;
+  font-weight: 900;
+  font-family: theme('fontFamily.heading');
+  letter-spacing: -0.025em;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  color: theme('colors.theme.content');
+}
+
+.luxury-close-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 300;
+  border-radius: 999px;
+  cursor: pointer;
+
+  /* Luxury styling */
+  background: theme('colors.theme.content / 0.05');
+  backdrop-filter: blur(6px);
+  border: 1px solid theme('colors.theme.primary / 0.25');
+  color: theme('colors.theme.content / 0.8');
+
+  transition: none;
+}
+
+.luxury-close-btn:hover {
+  background: theme('colors.theme.content / 0.1');
+  border-color: theme('colors.theme.primary / 0.6');
+  color: theme('colors.theme.primary');
+}
+/* Search Drawer - POSITIONED RIGHT */
+.search-drawer {
+  width: var(--drawer-search-mobile);
+}
+
+.search-drawer.open {
+  right: 0;
+  animation: slide-in-right 0.6s ease-out;
+}
+
+/* Cart Drawer - POSITIONED RIGHT */
+.cart-drawer {
+  width: var(--drawer-cart-mobile);
+}
+
+.cart-drawer.open {
+  right: 0;
+  animation: slide-in-right 0.6s ease-out;
+}
+
+/* 🎯 Enhanced Search Components */
+.luxury-search-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+
+/* 🎯 Luxury Sections */
+.luxury-section {
+  margin-bottom: 2rem;
+}
+
+.luxury-section-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: theme('colors.theme.muted');
+  margin-bottom: 1rem;
+  font-family: theme('fontFamily.heading'); /* Cinzel for Titles */
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.luxury-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.luxury-tag {
+  background: theme('colors.theme.page');
+  color: theme('colors.theme.muted');
+  padding: 0.25rem 0.75rem; 
+  border-radius: 0.25rem;    
+  border: 1px solid theme('colors.theme.primary / 0.2');
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.75rem;       
+  font-family: theme('fontFamily.body');
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.luxury-tag:hover {
+  background: theme('colors.theme.primary / 0.1');
+  color: theme('colors.theme.primary');
+  border-color: theme('colors.theme.primary / 0.4');
+  transform: translateY(-2px);
+}
+
+
+
+/* Desktop / sm+ slightly smaller tags */
+@media (min-width: 640px) { /* sm and up */
+  .luxury-tag {
+    padding: 0.35rem 0.6rem; /* slightly smaller than before */
+    font-size: 0.8rem;       /* a bit smaller */
+  }
+}
+
+.luxury-products-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+/* 🎯 Enhanced Cart Items */
+
+/* --- Container --- */
+.luxury-cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0; /* Vertical padding only for sidebar look */
+  border-bottom: 1px solid theme('colors.theme.content / 0.1'); /* Subtle divider */
+  position: relative;
+}
+
+/* --- Image --- */
+.luxury-cart-image-wrapper {
+  flex-shrink: 0;
+}
+
+.luxury-cart-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 4px; /* Sharp edges for luxury */
+  object-fit: cover;
+  background-color: theme('colors.theme.surface');
+  border: 1px solid theme('colors.theme.content / 0.1');
+}
+
+/* --- Right Side Info Column --- */
+.luxury-cart-info {
+  flex: 1; /* Takes up remaining width */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70px; /* Match image height to align vertically */
+}
+
+/* --- Top Row: Name & Trash --- */
+.luxury-cart-top {
+  display: flex;
+  justify-content: space-between; /* Pushes items apart */
+  align-items: flex-start;
+  width: 100%;
+}
+
+.luxury-cart-name {
+  font-family: theme('fontFamily.heading'); /* Cinzel for Product Names */
+  color: theme('colors.theme.content');
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+  padding-right: 10px; 
+  letter-spacing: 0.025em;
+  
+  /* Text Truncation */
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Force 1 line for clean look */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.luxury-remove-btn {
+  background: transparent;
+  border: none;
+  color: theme('colors.theme.muted'); 
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.luxury-remove-btn:hover {
+  color: #ff4d4d; /* Red on hover */
+}
+
+/* --- Bottom Row: Qty & Price --- */
+.luxury-cart-bottom {
+  display: flex;
+  justify-content: space-between; /* Pushes Qty left, Price right */
+  align-items: flex-end; /* Aligns to bottom */
+  width: 100%;
+}
+/* --- Quantity Controls (Sleek Outline Style) --- */
+.luxury-quantity-controls {
+  display: flex;
+  align-items: center;
+  border: 1px solid theme('colors.theme.content / 0.2');
+  border-radius: 4px;
+  height: 28px; /* Compact height */
+}
+
+.luxury-quantity-btn {
+  background: transparent;
+  border: none;
+  color: theme('colors.theme.content');
+  width: 24px;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.luxury-quantity-btn:hover {
+  background: theme('colors.theme.content / 0.1');
+}
+
+.luxury-quantity-count {
+  color: theme('colors.theme.content');
+  font-size: 0.85rem;
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+  font-family: theme('fontFamily.body');
+}
+
+.luxury-cart-price {
+  color: theme('colors.theme.primary'); /* Updated to Gold */
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  font-family: theme('fontFamily.body');
+}
+
+.luxury-remove-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: theme('colors.theme.muted');
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background: theme('colors.theme.surface / 0.8');
+  backdrop-filter: blur(4px);
+}
+
+.luxury-remove-btn:hover {
+  color: #EF4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.luxury-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  text-align: center;
+  flex: 1;
+}
+
+.luxury-empty-icon {
+  margin-bottom: 1.5rem;
+  opacity: 0.7;
+}
+
+/* 🎯 Checkout Section */
+.luxury-checkout-section {
+  padding-top: 1.5rem;
+  border-top: 1px solid theme('colors.theme.primary / 0.1');
+  flex-shrink: 0;
+}
+
+.luxury-sale-info {
+  color: theme('colors.theme.primary');
+  font-family: theme('fontFamily.body');
+  text-align: center;
+  font-weight: 600;
+  padding: 0.75rem;
+  background: theme('colors.theme.primary / 0.1');
+  border-radius: 0.25rem;
+  border: 1px solid theme('colors.theme.primary / 0.2');
+}
+
+/* 🎯 Animations */
+@keyframes slide-down {
+  from {
+      opacity: 0;
+      transform: translateY(-20px) scale(0.95);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { 
+      opacity: 1;
+      transform: scale(1);
+  }
+  50% { 
+      opacity: 0.8;
+      transform: scale(1.05);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+      transform: translateX(100%);
+  }
+  to {
+      transform: translateX(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slide-down 0.4s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out;
+}
+
+/* 🎯 Responsive Enhancements */
+@media (min-width: 640px) {
+  .search-drawer {
+      width: var(--drawer-search-desktop);
+  }
+  
+  .cart-drawer {
+      width: var(--drawer-cart-desktop);
+  }
+}
+
+@media (min-width: 1024px) {
+  .luxury-drawer-title {
+      font-size: 2.25rem;
+  }
+}
+
+/* Sticky Navbar */
+.navbar.sticky {
+  background: theme('colors.theme.page / 0.95');
+  backdrop-filter: blur(24px);
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+/* Custom Scrollbars */
+.luxury-search-results::-webkit-scrollbar,
+.luxury-cart-items::-webkit-scrollbar,
+.luxury-drawer-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.luxury-search-results::-webkit-scrollbar-track,
+.luxury-cart-items::-webkit-scrollbar-track,
+.luxury-drawer-content::-webkit-scrollbar-track {
+  background: theme('colors.theme.page / 0.3');
+  border-radius: 9999px;
+}
+
+.luxury-search-results::-webkit-scrollbar-thumb,
+.luxury-cart-items::-webkit-scrollbar-thumb,
+.luxury-drawer-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, theme('colors.theme.primary'), theme('colors.theme.primary-dark'));
+  border-radius: 9999px;
+}
+
+.luxury-search-results::-webkit-scrollbar-thumb:hover,
+.luxury-cart-items::-webkit-scrollbar-thumb:hover,
+.luxury-drawer-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, theme('colors.theme.primary-light'), theme('colors.theme.primary'));
+}
+
+/* Loading States */
+.luxury-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.luxury-loading i {
+  animation: spin 1s linear infinite;
+  color: theme('colors.theme.primary');
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Utility Classes */
+.hidden {
+  display: none !important;
+}
+
+.backdrop-blur-xl {
+  backdrop-filter: blur(24px);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-property: color, background-color, border-color, transform, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
